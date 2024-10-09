@@ -62,8 +62,8 @@ func main() {
 			return cli.NewExitError("timeSeconds not correct must be positive int", EINVAL)
 		}
 
-		if percentage <= 0 || percentage > 100 {
-			return cli.NewExitError("percentage must between 1 - 100", EINVAL)
+		if percentage < 0 || percentage > 100 {
+			return cli.NewExitError("percentage must between 0 - 100", EINVAL)
 		}
 		RunCPULoad(coresCount, timeSeconds, percentage)
 		return nil
